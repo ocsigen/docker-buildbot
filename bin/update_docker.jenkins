@@ -12,7 +12,7 @@ if [ -f ${RUNFILE} ]; then
   echo "File '${RUNFILE}' exists. Exiting..." 
   exit 0
 fi
-trap 'rm -f ${RUNFILE} ${WAITFILE}; exit 1' INT QUIT TERM
+trap 'rm -f ${RUNFILE} ${WAITFILE}; exit 1' INT QUIT TERM 0
 touch ${RUNFILE}
 
 ## Shameless hack : be sure the second the second jobs on this builder
@@ -25,13 +25,10 @@ while [ ! -f ${WAITFILE} ]; do
 done
 
 echo "Updating docker context..."
-cp -a /builds/cache/{git,opam-repository}.tar ${DOCKERDIR}/cache
-cp -a /builds/.ssh/id_rsa{,.pub} ${DOCKERDIR}/ssh
+cp -a /builds/cache/git.tar /builds/cache/opam-repository.tar ${DOCKERDIR}/cache
+cp -a /builds/.ssh/id_rsa /builds/.ssh/id_rsa.pub ${DOCKERDIR}/ssh
 
 echo "Launching updater..."
 ${DIR}/update_docker ${DIR}/../docker
 
 cp ${DIR}/bin/build /usr/local/build
-
-rm ${WAITFILE}
-rm ${RUNFILE}

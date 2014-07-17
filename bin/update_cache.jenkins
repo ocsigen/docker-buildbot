@@ -12,7 +12,7 @@ if [ -f ${RUNFILE} ]; then
   echo "File '${RUNFILE}' exists. Exiting..." 
   exit 0
 fi
-trap 'rm ${RUNFILE}; exit 1' INT QUIT TERM
+trap 'rm ${RUNFILE}; exit 1' INT QUIT TERM 0
 touch ${RUNFILE}
 
 echo "Launching updater..."
