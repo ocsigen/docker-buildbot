@@ -1,0 +1,17 @@
+#! /bin/sh
+
+if [ "$USER" != "ci" ]; then
+  echo "Should be runned as 'ci'"
+  exit 1
+fi
+
+set -e
+set -x
+
+git --git-dir=/builds/cache/git/ remote update
+cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
+
+git --git-dir=/builds/cache/opam-repository/.git pull
+cd /builds/cache/opam-repository \
+   && opam-admin make -g \
+   && tar cf /builds/cache/opam-repository.tar .

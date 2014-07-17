@@ -1,0 +1,16 @@
+#! /bin/sh
+
+if [ "$USER" != "ci" ]; then
+  echo "Should be runned as 'ci'"
+  exit 1
+fi
+
+set -e
+set -x
+ 
+DOCKERDIR=${1:-/builds/ocsigen/docker}
+
+docker build -t ocsigen:debian_stable $DOCKERDIR
+
+dangling_images=$(docker images -f dangling=true -q)
+if [ ! -z "${dangling_images}" ]; then docker rmi ${dangling_images}; fi

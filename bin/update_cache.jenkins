@@ -1,0 +1,28 @@
+#! /bin/sh
+
+set -e
+
+DIR=$(dirname $(readlink -f $0))
+
+RUNDIR=/var/run
+RUNFILE=${RUNDIR}/cache_updater.running
+WAITFILE=${RUNDIR}/cache_updater.waiting
+ 
+if [ -f ${RUNFILE} ]; then
+  echo "File '${RUNFILE}' exists. Exiting..." 
+  exit 0
+fi
+trap 'rm ${RUNFILE}; exit 1' INT QUIT TERM
+touch ${RUNFILE}
+
+echo "Launching updater..."
+${DIR}/update_cache
+
+## Shameless hack : see update_docker.jenkins
+touch ${WAITFILE}
+while [ -f ${WAITFILE} ]; do
+    echo "Waiting for the 'update_docker' job to terminate..."
+    sleep 10
+done
+
+rm ${RUNFILE}
