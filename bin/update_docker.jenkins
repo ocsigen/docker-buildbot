@@ -33,4 +33,4 @@ cp -a /builds/.ssh/id_rsa /builds/.ssh/id_rsa.pub ${DOCKERDIR}/ssh
 echo "Launching updater..."
 ${DIR}/update_docker ${DOCKERDIR}
 
-cp ${DIR}/build.jenkins /usr/local/build
+cp ${DIR}/build.jenkins /usr/local/bin/build

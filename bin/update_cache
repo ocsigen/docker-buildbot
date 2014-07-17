@@ -11,7 +11,10 @@ set -x
 git --git-dir=/builds/cache/git/ remote update
 cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
 
-git --git-dir=/builds/cache/opam-repository/.git pull
-cd /builds/cache/opam-repository \
-   && opam-admin make -g \
-   && tar cf /builds/cache/opam-repository.tar .
+git --git-dir=/builds/cache/opam-repository/.git fetch
+if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master)" ] ; then
+  git --git-dir=/builds/cache/opam-repository/.git merge
+  cd /builds/cache/opam-repository \
+     && opam-admin make -g \
+     && tar cf /builds/cache/opam-repository.tar .
+fi
