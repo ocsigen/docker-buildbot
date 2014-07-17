@@ -3,6 +3,7 @@
 set -e
 
 DIR=$(dirname $(readlink -f $0))
+DOCKERDIR=${DIR}/../docker
 
 RUNDIR=/var/run/ci
 RUNFILE=${RUNDIR}/docker_updater.running
@@ -24,11 +25,12 @@ while [ ! -f ${WAITFILE} ]; do
     sleep 10
 done
 
+
 echo "Updating docker context..."
 cp -a /builds/cache/git.tar /builds/cache/opam-repository.tar ${DOCKERDIR}/cache
 cp -a /builds/.ssh/id_rsa /builds/.ssh/id_rsa.pub ${DOCKERDIR}/ssh
 
 echo "Launching updater..."
-${DIR}/update_docker ${DIR}/../docker
+${DIR}/update_docker ${DOCKERDIR}
 
 cp ${DIR}/bin/build /usr/local/build
