@@ -12,8 +12,8 @@ git --git-dir=/builds/cache/git/ remote update
 cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
 
 git --git-dir=/builds/cache/opam-repository/.git fetch
-if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master)" ] ; then
-  git --git-dir=/builds/cache/opam-repository/.git merge
+if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master --oneline)" ] ; then
+  git --git-dir=/builds/cache/opam-repository/.git merge origin/master
   cd /builds/cache/opam-repository \
      && opam-admin make -g \
      && tar cf /builds/cache/opam-repository.tar .
