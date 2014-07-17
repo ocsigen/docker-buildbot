@@ -4,7 +4,7 @@ set -e
 
 DIR=$(dirname $(readlink -f $0))
 
-RUNDIR=/var/run
+RUNDIR=/var/run/ci
 RUNFILE=${RUNDIR}/cache_updater.running
 WAITFILE=${RUNDIR}/cache_updater.waiting
  

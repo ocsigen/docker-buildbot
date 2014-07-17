@@ -4,7 +4,7 @@ set -e
 
 DIR=$(dirname $(readlink -f $0))
 
-RUNDIR=/var/run
+RUNDIR=/var/run/ci
 RUNFILE=${RUNDIR}/docker_updater.running
 WAITFILE=${RUNDIR}/cache_updater.waiting
 
@@ -30,6 +30,8 @@ cp -a /builds/.ssh/id_rsa{,.pub} ${DOCKERDIR}/ssh
 
 echo "Launching updater..."
 ${DIR}/update_docker ${DIR}/../docker
+
+cp ${DIR}/bin/build /usr/local/build
 
 rm ${WAITFILE}
 rm ${RUNFILE}
