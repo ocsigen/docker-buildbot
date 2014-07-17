@@ -1,3 +1,5 @@
 *~
 docker/cache/git.tar
 docker/cache/opam-repository.tar
+docker/ssh/id_rsa
+docker/ssh/id_rsa.pub
