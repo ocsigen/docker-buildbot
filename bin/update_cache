@@ -13,7 +13,7 @@ cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
 
 git --git-dir=/builds/cache/opam-repository/.git fetch
 if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master --oneline)" ] ; then
-  git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository merge origin/master
+  git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset --hard origin/master
   cd /builds/cache/opam-repository \
      && opam-admin make -g \
      && tar cf /builds/cache/opam-repository.tar .
