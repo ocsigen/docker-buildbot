@@ -41,11 +41,12 @@ RUN opam init /var/cache/opam-repository
 RUN opam switch install 3.12.1
 RUN opam switch install 4.00.1
 RUN opam switch install 4.01.0
+RUN opam switch install 4.02.0
 RUN opam switch remove system \
     && apt-get purge --yes ocaml-native-compilers \
     && apt-get autoremove --purge --yes
 
-### 
+###
 
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
@@ -63,7 +64,8 @@ ADD cache/opam-repository.tar /var/cache/opam-repository
 RUN opam update \
     && opam install --switch 3.12.1 base-unix base-threads base-bigarray \
     && opam install --switch 4.00.1 base-unix base-threads base-bigarray \
-    && opam install --switch 4.01.0 base-unix base-threads base-bigarray
+    && opam install --switch 4.01.0 base-unix base-threads base-bigarray \
+    && opam install --switch 4.02.0 base-unix base-threads base-bigarray
 
 ENV OPAMKEEPBUILDDIR yes
 
