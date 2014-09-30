@@ -23,7 +23,7 @@ RUN apt-get update \
     && rm -r /var/cache/apt \
     && rm -r /var/lib/apt/lists
 
-ADD cache/opam /usr/loca/bin/opam
+ADD cache/opam /usr/local/bin/opam
 
 ADD cache/opam-repository-init /var/cache/opam-repository
 
