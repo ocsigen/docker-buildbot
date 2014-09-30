@@ -49,11 +49,15 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists
 
 ADD cache/opam-repository.tar /var/cache/opam-repository
-RUN opam update \
-    && opam install --switch 3.12.1 base-unix base-threads base-bigarray \
-    && opam install --switch 4.00.1 base-unix base-threads base-bigarray \
-    && opam install --switch 4.01.0 base-unix base-threads base-bigarray \
-    && opam install --switch 4.02.0 base-unix base-threads base-bigarray
+RUN opam update --use-internal-solver \
+    && opam install --use-internal-solver --switch 3.12.1 \
+         base-unix base-threads base-bigarray \
+    && opam install --use-internal-solver --switch 4.00.1 \
+         base-unix base-threads base-bigarray \
+    && opam install --use-internal-solver --switch 4.01.0 \
+         base-unix base-threads base-bigarray \
+    && opam install --use-internal-solver --switch 4.02.0 \
+         base-unix base-threads base-bigarray
 
 ENV OPAMKEEPBUILDDIR yes
 
