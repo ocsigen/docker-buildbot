@@ -11,7 +11,6 @@ RUN apt-get update \
          build-essential \
          m4 \
          git \
-         ocaml-native-compilers \
          aspcud \
          libX11-dev \
          libncurses5-dev \
@@ -30,14 +29,10 @@ ADD cache/opam-repository-init /var/cache/opam-repository
 ENV OPAMROOT /opt/opam
 ENV OPAMYES yes
 
-RUN opam init /var/cache/opam-repository
-RUN opam switch install 3.12.1
+RUN opam init /var/cache/opam-repository --comp=3.12.1
 RUN opam switch install 4.00.1
 RUN opam switch install 4.01.0
 RUN opam switch install 4.02.0
-RUN opam switch remove system \
-    && apt-get purge --yes ocaml-native-compilers \
-    && apt-get autoremove --purge --yes
 
 ###
 
