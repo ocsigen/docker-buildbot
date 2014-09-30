@@ -23,14 +23,7 @@ RUN apt-get update \
     && rm -r /var/cache/apt \
     && rm -r /var/lib/apt/lists
 
-RUN git clone https://github.com/ocaml/opam.git \
-      && cd opam \
-      && ./configure \
-      && make lib-ext \
-      && make \
-      && make install \
-      && cd .. \
-      && rm -r /usr/src/opam
+ADD cache/opam /usr/loca/bin/opam
 
 ADD cache/opam-repository-init /var/cache/opam-repository
 

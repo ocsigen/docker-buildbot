@@ -7,7 +7,7 @@ fi
 
 set -e
 set -x
- 
+
 DOCKERDIR=${1:-/builds/ocsigen/docker}
 
 docker build -t ocsigen:debian_stable $DOCKERDIR
