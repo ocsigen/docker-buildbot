@@ -16,21 +16,14 @@ fi
 trap 'rm -f ${RUNFILE} ${WAITFILE}; exit 0' INT QUIT TERM 0
 touch ${RUNFILE}
 
-## Shameless hack : be sure the second the second jobs on this builder
-## is the ''update_cache'. As the maximum number of jobs is two, this
-## ensures that no jobs currently depends on docker.
-
-while [ ! -f ${WAITFILE} ]; do
-    echo "Waiting for the 'update_cache' job to terminate..."
-    sleep 10
-done
-
+echo "Launching cache updater..."
+${DIR}/update_cache
 
 echo "Updating docker context..."
 cp -a /builds/cache/git.tar /builds/cache/opam-repository.tar /builds/cache/opam ${DOCKERDIR}/cache
 cp -a /builds/.ssh/id_rsa /builds/.ssh/id_rsa.pub ${DOCKERDIR}/ssh
 
-echo "Launching updater..."
+echo "Launching docker updater..."
 ${DIR}/update_docker ${DOCKERDIR}
 
 cp ${DIR}/build.jenkins /usr/local/bin/build
