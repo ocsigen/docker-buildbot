@@ -5,17 +5,6 @@ set -e
 DIR=$(dirname $(readlink -f $0))
 DOCKERDIR=${DIR}/../docker
 
-RUNDIR=/var/run/ci
-RUNFILE=${RUNDIR}/docker_updater.running
-WAITFILE=${RUNDIR}/cache_updater.waiting
-
-if [ -f ${RUNFILE} ]; then
-  echo "File '${RUNFILE}' exists. Exiting..."
-  exit 0
-fi
-trap 'rm -f ${RUNFILE} ${WAITFILE}; exit 0' INT QUIT TERM 0
-touch ${RUNFILE}
-
 echo "Launching cache updater..."
 ${DIR}/update_cache
 
