@@ -32,7 +32,7 @@ ENV OPAMYES yes
 RUN opam init /var/cache/opam-repository --comp=3.12.1
 RUN opam switch install 4.00.1
 RUN opam switch install 4.01.0
-RUN opam switch install 4.02.0
+RUN opam switch install 4.02.1
 
 ###
 
