@@ -12,4 +12,4 @@ DOCKERDIR=${1:-/builds/ocsigen/docker}
 
 docker build -t ocsigen:debian_stable $DOCKERDIR
 
-./cleanup_docker.sh
+./cleanup_docker
