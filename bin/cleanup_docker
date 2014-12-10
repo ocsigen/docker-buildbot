@@ -1,16 +1,23 @@
 #! /bin/sh
 
 set -e
- 
+
 if [ "$USER" != "root" ]; then
   echo "Should be runned as 'root'"
   exit 1
 fi
 
-images=$(docker ps -a | grep Exited | awk '{ print $1 }')
+containers=$(docker ps -a --no-trunc | grep Exited | awk '{ print $1 }')
 
-if [ -z "${images}" ]; then
-  echo "No images to be removed."
+if [ -z "${containers}" ]; then
+    echo "No containers to be removed."
 else
-  docker rm ${images}
+    docker rm ${containers}
+fi
+
+dangling_images=$(docker images -f dangling=true -q)
+if [ -z "${dangling_images}" ]; then
+    echo "No dangling images to be removed."
+else
+    docker rmi ${dangling_images};
 fi

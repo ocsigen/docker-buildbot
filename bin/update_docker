@@ -12,7 +12,4 @@ DOCKERDIR=${1:-/builds/ocsigen/docker}
 
 docker build -t ocsigen:debian_stable $DOCKERDIR
 
-dangling_images=$(docker images -f dangling=true -q)
-if [ ! -z "${dangling_images}" ]; then
-  docker rmi ${dangling_images} || echo -n
-fi
+./cleanup_docker.sh
