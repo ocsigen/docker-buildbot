@@ -8,8 +8,23 @@ fi
 set -e
 set -x
 
+DIR=$(dirname $(readlink -f $0))
+BASEDIR=$(dirname ${DIR})
+
+if [ ! -d /builds/cache/git ]; then
+  mkdir /builds/cache/git/
+  git --git-dir=/builds/cache/git/ --bare init
+fi
+
+cp ${BASEDIR}/git-cache-config /builds/cache/git/config
+
 git --git-dir=/builds/cache/git/ remote update
 cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
+
+if [ ! -d /builds/cache/opam-repository ]; then
+  git clone https://github.com/ocaml/opam-repository.git /builds/cache/opam-repository
+  git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset HEAD^ ## Small hack to enter the next conditionnal...
+fi
 
 git --git-dir=/builds/cache/opam-repository/.git fetch
 if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master --oneline)" ] ; then

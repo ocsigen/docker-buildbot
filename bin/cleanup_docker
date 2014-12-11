@@ -2,8 +2,8 @@
 
 set -e
 
-if [ "$USER" != "root" ]; then
-  echo "Should be runned as 'root'"
+if [ "$USER" != "root" && "$USER" != "ci" ]; then
+  echo "Should be runned as 'root' or 'ci'"
   exit 1
 fi
 

@@ -1,0 +1,114 @@
+[core]
+  repositoryformatversion = 0
+  filemode = true
+  bare = true
+[remote "deriving"]
+  url = https://github.com/ocsigen/deriving.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/deriving/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/deriving/*
+  tagopt = --no-tags
+[remote "eliom"]
+  url = https://github.com/ocsigen/eliom.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/eliom/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/eliom/*
+  tagopt = --no-tags
+[remote "eliom-base-app"]
+  url = https://github.com/ocsigen/eliom-base-app.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/eliom-base-app/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/eliom-base-app/*
+  tagopt = --no-tags
+[remote "eliom-widgets"]
+  url = https://github.com/ocsigen/eliom-widgets.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/eliom-widgets/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/eliom-widgets/*
+  tagopt = --no-tags
+[remote "graffiti"]
+  url = https://github.com/ocsigen/graffiti.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/graffiti/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/graffiti/*
+  tagopt = --no-tags
+[remote "js_of_ocaml"]
+  url = https://github.com/ocsigen/js_of_ocaml.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/js_of_ocaml/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/js_of_ocaml/*
+  tagopt = --no-tags
+[remote "lwt"]
+  url = https://github.com/ocsigen/lwt.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/lwt/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/lwt/*
+  tagopt = --no-tags
+[remote "macaque"]
+  url = https://github.com/ocsigen/macaque.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/macaque/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/macaque/*
+  tagopt = --no-tags
+[remote "obrowser"]
+  url = https://github.com/ocsigen/obrowser.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/obrowser/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/obrowser/*
+  tagopt = --no-tags
+[remote "oclosure"]
+  url = https://github.com/ocsigen/oclosure.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/oclosure/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/oclosure/*
+  tagopt = --no-tags
+[remote "ocsforge"]
+  url = https://github.com/ocsigen/ocsforge.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsforge/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsforge/*
+  tagopt = --no-tags
+[remote "ocsigen.org"]
+  url = https://github.com/ocsigen/ocsigen.org.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsigen.org/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsigen.org/*
+  tagopt = --no-tags
+[remote "ocsigen.org-data"]
+  url = https://github.com/ocsigen/ocsigen.org-data.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsigen.org-data/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsigen.org-data/*
+  tagopt = --no-tags
+[remote "ocsigenserver"]
+  url = https://github.com/ocsigen/ocsigenserver.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsigenserver/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsigenserver/*
+  tagopt = --no-tags
+[remote "ocsimore"]
+  url = https://github.com/ocsigen/ocsimore.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsimore/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsimore/*
+  tagopt = --no-tags
+[remote "ojquery"]
+  url = https://github.com/ocsigen/ojquery.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ojquery/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ojquery/*
+  tagopt = --no-tags
+[remote "ojwidgets"]
+  url = https://github.com/ocsigen/ojwidgets.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ojwidgets/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ojwidgets/*
+  tagopt = --no-tags
+[remote "opam-ocsigen"]
+  url = https://github.com/ocsigen/opam-ocsigen.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/opam-ocsigen/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/opam-ocsigen/*
+  tagopt = --no-tags
+[remote "pa_include"]
+  url = https://github.com/ocsigen/pa_include.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/pa_include/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/pa_include/*
+  tagopt = --no-tags
+[remote "tutorial"]
+  url = https://github.com/ocsigen/tutorial.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/tutorial/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/tutorial/*
+  tagopt = --no-tags
+[remote "tyxml"]
+  url = https://github.com/ocsigen/tyxml.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/tyxml/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/tyxml/*
+  tagopt = --no-tags
+[remote "wikidoc"]
+  url = https://github.com/ocsigen/wikidoc.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/wikidoc/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/wikidoc/*
+  tagopt = --no-tags
