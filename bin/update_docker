@@ -8,8 +8,9 @@ fi
 set -x
 set -e
 
+DIR=$(dirname $(readlink -f $0))
 DOCKERDIR=${1:-/builds/ocsigen/docker}
 
 docker build -t ocsigen:debian_stable $DOCKERDIR
 
-./cleanup_docker
+${DIR}/cleanup_docker
