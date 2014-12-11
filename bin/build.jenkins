@@ -8,4 +8,4 @@ if [ -z ${JENKINS_KEEP_CONTAINER} ]; then
   REMOVE_OPT="--rm=true"
 fi
 
-docker run ${REMOVE_OPT} -v ${PWD}:/usr/src/workspace ocsigen:debian_stable
+docker run -t ${REMOVE_OPT} -v ${PWD}:/usr/src/workspace ocsigen:debian_stable
