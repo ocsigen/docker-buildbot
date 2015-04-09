@@ -87,11 +87,6 @@
   fetch = +refs/heads/*:refs/remotes/github/ocsigen/ojwidgets/*
   fetch = +refs/tags/*:refs/tags/github/ocsigen/ojwidgets/*
   tagopt = --no-tags
-[remote "opam-ocsigen"]
-  url = https://github.com/ocsigen/opam-ocsigen.git
-  fetch = +refs/heads/*:refs/remotes/github/ocsigen/opam-ocsigen/*
-  fetch = +refs/tags/*:refs/tags/github/ocsigen/opam-ocsigen/*
-  tagopt = --no-tags
 [remote "pa_include"]
   url = https://github.com/ocsigen/pa_include.git
   fetch = +refs/heads/*:refs/remotes/github/ocsigen/pa_include/*
