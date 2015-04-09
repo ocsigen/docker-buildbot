@@ -19,6 +19,7 @@ RUN apt-get update \
 	 rsync \
 	 ca-certificates \
 	 openssh-client \
+         unzip \
     && rm -r /var/cache/apt \
     && rm -r /var/lib/apt/lists
 
