@@ -64,3 +64,19 @@ et
 Pour ne pas qu'un job Jenkins "classique" s'exécute en même tant que
 la mise-à-jour du Docker, les jovs 'Cache-updater' et 'Docker-builbot'
 se synchronise pour occuper les deux 'executors' de l'esclave...
+
+## How to:
+
+# Add a new compiler
+
+Add the new compiler in `docker/cache/opam-repository-init/compilers` by
+copying a definition in `opam-repository`.
+
+Add a new line in `docker/Dockerfile` like that:
+
+```
+RUN opam switch install 4.02 --alias-of 4.02.3
+```
+
+Please add versions without the patch number, it makes it easier to change
+when a patch is out.
