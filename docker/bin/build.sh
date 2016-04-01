@@ -6,7 +6,7 @@ cd /usr/src/workspace
 
 . ./.env.sh
 
-OPAMCOLOR=never
+export OPAMCOLOR=never
 eval $(opam config --switch ${OPAMSWITCH:-${DEFAULT_OPAMSWITCH}} --root $OPAMROOT env)
 opam config report
 
