@@ -15,10 +15,11 @@ RUN apt-get update \
          libX11-dev \
          libncurses5-dev \
          binutils-dev \
+         libsqlite3-dev \
          curl \
-	 rsync \
-	 ca-certificates \
-	 openssh-client \
+         rsync \
+         ca-certificates \
+         openssh-client \
          unzip \
     && rm -r /var/cache/apt \
     && rm -r /var/lib/apt/lists
