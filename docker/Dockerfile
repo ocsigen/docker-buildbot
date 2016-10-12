@@ -12,6 +12,7 @@ RUN apt-get update \
          m4 \
          git \
          aspcud \
+         libgmp-dev \
          libX11-dev \
          libncurses5-dev \
          binutils-dev \
