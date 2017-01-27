@@ -12,10 +12,10 @@
   fetch = +refs/heads/*:refs/remotes/github/ocsigen/eliom/*
   fetch = +refs/tags/*:refs/tags/github/ocsigen/eliom/*
   tagopt = --no-tags
-[remote "eliom-base-app"]
-  url = https://github.com/ocsigen/eliom-base-app.git
-  fetch = +refs/heads/*:refs/remotes/github/ocsigen/eliom-base-app/*
-  fetch = +refs/tags/*:refs/tags/github/ocsigen/eliom-base-app/*
+[remote "ocsigen-start"]
+  url = https://github.com/ocsigen/ocsigen-start.git
+  fetch = +refs/heads/*:refs/remotes/github/ocsigen/ocsigen-start/*
+  fetch = +refs/tags/*:refs/tags/github/ocsigen/ocsigen-start/*
   tagopt = --no-tags
 [remote "eliom-widgets"]
   url = https://github.com/ocsigen/eliom-widgets.git
