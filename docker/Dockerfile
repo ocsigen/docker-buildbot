@@ -38,6 +38,7 @@ RUN opam switch install 4.02.1
 RUN opam switch install 4.02 --alias-of 4.02.3
 RUN opam switch install 4.03 --alias-of 4.03.0
 RUN opam switch install 4.04 --alias-of 4.04.0
+RUN opam switch install 4.05 --alias-of 4.05.0+trunk
 
 ###
 
