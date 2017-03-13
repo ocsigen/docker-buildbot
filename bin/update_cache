@@ -11,6 +11,8 @@ set -x
 DIR=$(dirname $(readlink -f $0))
 BASEDIR=$(dirname ${DIR})
 
+rm -rf /builds/cache/git/
+
 if [ ! -d /builds/cache/git ]; then
   mkdir /builds/cache/git/
   git --git-dir=/builds/cache/git/ --bare init
