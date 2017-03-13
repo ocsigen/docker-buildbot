@@ -21,18 +21,21 @@ cp ${BASEDIR}/git-cache-config /builds/cache/git/config
 git --git-dir=/builds/cache/git/ remote update
 cd /builds/cache/git/ && tar cf /builds/cache/git.tar .
 
-if [ ! -d /builds/cache/opam-repository ]; then
-  git clone https://github.com/ocaml/opam-repository.git /builds/cache/opam-repository
-  git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset HEAD^ ## Small hack to enter the next conditionnal...
-fi
+## Trying to get things working with the standard mirror. This will save us
+## a few GB.
 
-git --git-dir=/builds/cache/opam-repository/.git fetch
-if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master --oneline)" ] ; then
-  git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset --hard origin/master
-  cd /builds/cache/opam-repository \
-     && opam-admin make -g \
-     && tar cf /builds/cache/opam-repository.tar .
-fi
+# if [ ! -d /builds/cache/opam-repository ]; then
+#   git clone https://github.com/ocaml/opam-repository.git /builds/cache/opam-repository
+#   git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset HEAD^ ## Small hack to enter the next conditionnal...
+# fi
+
+# git --git-dir=/builds/cache/opam-repository/.git fetch
+# if [ ! -z "$(git --git-dir=/builds/cache/opam-repository/.git log HEAD..origin/master --oneline)" ] ; then
+#   git --git-dir=/builds/cache/opam-repository/.git --work-tree=/builds/cache/opam-repository reset --hard origin/master
+#   cd /builds/cache/opam-repository \
+#      && opam-admin make -g \
+#      && tar cf /builds/cache/opam-repository.tar .
+# fi
 
 OPAM_VERSION=1.2.2
 

@@ -32,9 +32,7 @@ ADD cache/opam-repository-init /var/cache/opam-repository
 ENV OPAMROOT /opt/opam
 ENV OPAMYES yes
 
-RUN opam init /var/cache/opam-repository --comp=4.00.1
-RUN opam switch install 4.01.0
-RUN opam switch install 4.02.1
+RUN opam init --comp=4.02.3
 RUN opam switch install 4.02 --alias-of 4.02.3
 RUN opam switch install 4.03 --alias-of 4.03.0
 RUN opam switch install 4.04 --alias-of 4.04.0
