@@ -9,7 +9,7 @@ echo "Launching cache updater..."
 ${DIR}/update_cache
 
 echo "Updating docker context..."
-cp -a /builds/cache/git.tar /builds/cache/opam-repository.tar /builds/cache/opam ${DOCKERDIR}/cache
+cp -a /builds/cache/git.tar /builds/cache/opam ${DOCKERDIR}/cache
 cp -a /builds/.ssh/id_rsa /builds/.ssh/id_rsa.pub ${DOCKERDIR}/ssh
 
 echo "Launching docker updater..."
