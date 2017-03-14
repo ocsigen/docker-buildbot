@@ -27,7 +27,7 @@ RUN apt-get update \
 
 ADD cache/opam /usr/local/bin/opam
 
-ADD cache/opam-repository-init /var/cache/opam-repository
+# ADD cache/opam-repository-init /var/cache/opam-repository
 
 ENV OPAMROOT /opt/opam
 ENV OPAMYES yes
@@ -52,7 +52,7 @@ RUN apt-get update \
     && rm -r /var/cache/apt \
     && rm -r /var/lib/apt/lists
 
-ADD cache/opam-repository.tar /var/cache/opam-repository
+# ADD cache/opam-repository.tar /var/cache/opam-repository
 RUN opam update
 
 ENV OPAMKEEPBUILDDIR yes
