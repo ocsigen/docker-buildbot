@@ -14,6 +14,8 @@ git clean -dxf
 
 set -x
 
+opam update
+
 . ./.jenkins.sh
 
 if [ ! -z "${JENKINS_BUILD_DOC}" ]; then
