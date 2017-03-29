@@ -11,6 +11,8 @@ set -e
 DIR=$(dirname $(readlink -f $0))
 DOCKERDIR=${1:-/builds/ocsigen/docker}
 
-docker build -t ocsigen:debian_stable $DOCKERDIR
+docker build -t ocsigen:debian_stable \
+       --build-arg CACHEBUST=$(date +%s) \
+       $DOCKERDIR
 
 ${DIR}/cleanup_docker

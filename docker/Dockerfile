@@ -53,6 +53,10 @@ RUN apt-get update \
     && rm -r /var/lib/apt/lists
 
 # ADD cache/opam-repository.tar /var/cache/opam-repository
+
+# See https://github.com/docker/docker/issues/1996#issuecomment-185872769
+ARG CACHEBUST=1
+
 RUN opam update
 
 ENV OPAMKEEPBUILDDIR yes
